@@ -20,11 +20,11 @@ public class SimpleTrafficAnalysis implements TrafficAnalysis{
     }
 
     @Override
-    public HashMap<Coord2D, Integer> analyzeTraffic() {
-        trafficAnalysis();
+    public HashMap<Coord2D, Integer> getTrafficAnalysis() {
         return tilesTraffic;
     }
-    public void trafficAnalysis(){
+    @Override
+    public void analyzeTraffic(){
         tilesTraffic = new HashMap<>();
         for(SpaceTimeLocation l : Main.p.getPath()){
 

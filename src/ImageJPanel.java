@@ -55,7 +55,8 @@ public class ImageJPanel extends JPanel {
 
 
         TrafficAnalysis trafficAnalysis = new SimpleTrafficAnalysis(tilesManager);
-        HashMap<Coord2D, Integer> tilesTraffic = trafficAnalysis.analyzeTraffic();
+        trafficAnalysis.analyzeTraffic();
+        HashMap<Coord2D, Integer> tilesTraffic = trafficAnalysis.getTrafficAnalysis();
 
         for(Coord2D tileK : tilesTraffic.keySet()){
             Color trafficColor = trafficAnalysis.getTrafficColor(tileK);
