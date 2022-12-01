@@ -44,4 +44,21 @@ public class Coord2D {
         return Utils.mapRangeToRange(y, 0, worldHeight, 0, planeHeight);
     }
 
+    public String toString(){
+        return getX() + " " + getY();
+    }
+    public int hashCode() {
+
+        return x * 31 + y;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Coord2D that = (Coord2D) o;
+        return x == that.x && y == that.y;
+    }
+
 }

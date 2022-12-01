@@ -101,6 +101,8 @@ public class TilesManager {
         drawTileToPlane(g, getCorrespondingTile(worldCoord), planeWidth, planeHeight, color);
     }
 
+
+
     private void drawTileToPlane(Graphics2D g, Coord2D worldTile, int planeWidth, int planeHeight, Color color){
         TileRect tileRect = new TileRect(worldTile, getTileWidth(), getTileHeight());
         tileRect.toPlane(worldWidth, worldHeight, planeWidth, planeHeight);
