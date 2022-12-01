@@ -4,12 +4,16 @@ import java.util.Properties;
 
 public abstract class Configuration {
     private static final String CONFIGURATION_FILE_NAME = "configuration.properties";
+    private static final String BACKGROUND_IMAGE_PATH_KEY = "backgroundImagePath";
     private static final String NUMBER_OF_TILES_KEY = "numberOfTiles";
     private static final String WORLD_WIDTH_KEY = "worldWidth";
     private static final String WORLD_HEIGHT_KEY = "worldHeight";
     private static final String DRAW_GRID_KEY = "drawGrid";
 
     private static int numberOfTiles;
+
+
+    private static String backgroundImagePath;
     private static int worldWidth;
     private static int worldHeight;
     private static boolean drawGrid;
@@ -35,12 +39,18 @@ public abstract class Configuration {
                 worldHeight = Integer.parseInt(properties.getProperty(WORLD_WIDTH_KEY));
                 worldWidth = Integer.parseInt(properties.getProperty(WORLD_HEIGHT_KEY));
                 drawGrid = Boolean.parseBoolean(properties.getProperty(DRAW_GRID_KEY));
+                backgroundImagePath = properties.getProperty(BACKGROUND_IMAGE_PATH_KEY);
+
             } catch(java.lang.NumberFormatException e){
                 System.err.println("Some properties are in the wrong format in file " + CONFIGURATION_FILE_NAME + ".");
                 throw new RuntimeException(e);
             }
         }
 
+    }
+    public static String getBackgroundImagePath() {
+        getConfigIfNeeded();
+        return backgroundImagePath;
     }
 
     public static int getNumberOfTiles() {

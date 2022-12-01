@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class RootFrame extends JFrame {
-    String fileName = "./images/2D-warehouse-model-final-path-executed.png";
+    String fileName = Configuration.getBackgroundImagePath();
 
     public RootFrame() throws IOException {
         System.out.println(new File(fileName).exists());
